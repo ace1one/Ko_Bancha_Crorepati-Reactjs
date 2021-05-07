@@ -5,7 +5,7 @@ import {QuizContext} from '../Helper/Context'
 
 
 const QuestionAnswer = () => {
-    const {currQues, setCurrQues} = useContext(QuizContext);
+    const {currQues, setCurrQues,setScreen,setMoney} = useContext(QuizContext);
     const [selectedAns, setSelectedAns] = useState("")
     const [selectedclassName, setClassName] = useState("answer")
 
@@ -19,7 +19,14 @@ const QuestionAnswer = () => {
         setSelectedAns(anslist)
         setClassName("answer active")
         delay(3000,()=> setClassName(anslist.correct? "answer correct":"answer wrong"))
-        delay(8000,()=> setCurrQues(currQues+ 1))
+        delay(8000,()=>{
+            if(anslist.correct){
+                setCurrQues(currQues+ 1)
+            }
+            else{
+                setScreen("GameOver")
+            }
+        })
     }
     return (
     
