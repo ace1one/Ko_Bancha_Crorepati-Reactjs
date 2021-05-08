@@ -7,6 +7,7 @@ import QuizTimer from './QuizTimer'
 
 const QuestionScreen = () => {
    const {currQues, setCurrQues, timer} = useContext(QuizContext);
+   
     return (
         <div className="QuestionScreen">
             <div className="main">
